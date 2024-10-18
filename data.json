@@ -1,0 +1,9 @@
+{
+  "criticas": [
+    {"id": 6, "usuario": "Carla Martins", "filme": "La La Land", "nota": 8.9, "comentario": "Uma bela homenagem aos musicais clássicos, com uma trilha sonora encantadora."},
+    {"id": 7, "usuario": "Ricardo Lima", "filme": "Coringa", "nota": 9.4, "comentario": "Atuação fenomenal de Joaquin Phoenix, um filme sombrio e perturbador."},
+    {"id": 8, "usuario": "Fernanda Rocha", "filme": "A Vida é Bela", "nota": 9.8, "comentario": "Emocionante e comovente, uma história inesquecível sobre amor e sacrifício."},
+    {"id": 9, "usuario": "Gustavo Almeida", "filme": "Matrix", "nota": 9.0, "comentario": "Uma revolução no gênero de ficção científica, com cenas de ação incríveis."},
+    {"id": 10, "usuario": "Patrícia Moreira", "filme": "A Forma da Água", "nota": 8.7, "comentario": "Um conto de amor visualmente deslumbrante, com uma história encantadora."}
+  ]
+}
