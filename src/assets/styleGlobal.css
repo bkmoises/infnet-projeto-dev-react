@@ -38,6 +38,7 @@ nav a {
 
 main {
   padding: 16px;
+  min-height: 400px;
 }
 
 .btn-cadastrar {

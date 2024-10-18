@@ -1,9 +1,27 @@
-{
-  "criticas": [
-    {"id": 6, "usuario": "Carla Martins", "filme": "La La Land", "nota": 8.9, "comentario": "Uma bela homenagem aos musicais clássicos, com uma trilha sonora encantadora."},
-    {"id": 7, "usuario": "Ricardo Lima", "filme": "Coringa", "nota": 9.4, "comentario": "Atuação fenomenal de Joaquin Phoenix, um filme sombrio e perturbador."},
-    {"id": 8, "usuario": "Fernanda Rocha", "filme": "A Vida é Bela", "nota": 9.8, "comentario": "Emocionante e comovente, uma história inesquecível sobre amor e sacrifício."},
-    {"id": 9, "usuario": "Gustavo Almeida", "filme": "Matrix", "nota": 9.0, "comentario": "Uma revolução no gênero de ficção científica, com cenas de ação incríveis."},
-    {"id": 10, "usuario": "Patrícia Moreira", "filme": "A Forma da Água", "nota": 8.7, "comentario": "Um conto de amor visualmente deslumbrante, com uma história encantadora."}
-  ]
-}
+[
+  {"id": 1, "user": "Carla Martins", "movie": "La La Land", "note": 8.9, "comment": "Uma bela homenagem aos musicais clássicos, com uma trilha sonora encantadora."},
+  {"id": 2, "user": "Ricardo Lima", "movie": "Coringa", "note": 9.4, "comment": "Atuação fenomenal de Joaquin Phoenix, um filme sombrio e perturbador."},
+  {"id": 3, "user": "Fernanda Rocha", "movie": "A Vida é Bela", "note": 9.8, "comment": "Emocionante e comovente, uma história inesquecível sobre amor e sacrifício."},
+  {"id": 4, "user": "Gustavo Almeida", "movie": "Matrix", "note": 9.0, "comment": "Uma revolução no gênero de ficção científica, com cenas de ação incríveis."},
+  {"id": 5, "user": "Patrícia Moreira", "movie": "A Forma da Água", "note": 8.7, "comment": "Um conto de amor visualmente deslumbrante, com uma história encantadora."},
+  {"id": 6, "user": "João Silva", "movie": "O Poderoso Chefão", "note": 9.8, "comment": "Uma obra-prima que define o gênero de filmes de máfia, com atuações memoráveis."},
+  {"id": 7, "user": "Ana Costa", "movie": "Interestelar", "note": 9.3, "comment": "Uma jornada cinematográfica impressionante, que mistura ficção científica com drama emocional."},
+  {"id": 8, "user": "Carlos Souza", "movie": "Matrix", "note": 9.6, "comment": "Revolucionário em muitos aspectos, com um enredo intrigante e efeitos especiais inovadores."},
+  {"id": 9, "user": "Fernanda Lima", "movie": "Forrest Gump", "note": 9.2, "comment": "Uma história emocionante e atemporal, com um Tom Hanks imbatível no papel principal."},
+  {"id": 10, "user": "Lucas Oliveira", "movie": "Cidadão Kane", "note": 9.7, "comment": "Um clássico do cinema, que define o padrão para narrativa e direção cinematográfica."},
+  {"id": 11, "user": "Mariana Pires", "movie": "O Senhor dos Anéis: A Sociedade do Anel", "note": 9.5, "comment": "Uma adaptação épica e emocionante, que traz à vida a magia da Terra-média."},
+  {"id": 12, "user": "Ricardo Santos", "movie": "A Origem", "note": 9.4, "comment": "Um thriller psicológico desafiador e criativo, com um elenco de primeira."},
+  {"id": 13, "user": "Juliana Rocha", "movie": "O Clube da Luta", "note": 9.1, "comment": "Uma reflexão profunda sobre consumismo e identidade, com uma virada de roteiro impressionante."},
+  {"id": 14, "user": "Eduardo Almeida", "movie": "Gladiador", "note": 9.3, "comment": "Uma história de honra e vingança, com atuações épicas e cenas de batalha de tirar o fôlego."},
+  {"id": 15, "user": "Larissa Martins", "movie": "Pulp Fiction", "note": 9.0, "comment": "Um filme revolucionário que redefine a narrativa não linear e apresenta um elenco impecável."},
+  {"id": 16, "user": "Gustavo Araújo", "movie": "O Rei Leão", "note": 10.0, "comment": "Um filme atemporal, com uma animação deslumbrante e uma história que toca o coração."},
+  {"id": 17, "user": "Beatriz Silva", "movie": "O Grande Lebowski", "note": 8.9, "comment": "Uma comédia cult com personagens excêntricos e diálogos memoráveis."},
+  {"id": 18, "user": "Fabiana Oliveira", "movie": "O Vingador do Futuro", "note": 8.6, "comment": "Uma ficção científica cheia de ação e com um roteiro intrigante."},
+  {"id": 19, "user": "André Costa", "movie": "O Exorcista", "note": 9.2, "comment": "Um dos maiores filmes de terror de todos os tempos, com uma atmosfera de medo insuportável."},
+  {"id": 20, "user": "Patrícia Martins", "movie": "Vingadores: Ultimato", "note": 8.8, "comment": "Uma conclusão épica para a saga dos Vingadores, cheia de ação e emoção."},
+  {"id": 21, "user": "Rodrigo Souza", "movie": "A Rede Social", "note": 9.0, "comment": "Um drama fascinante sobre a criação do Facebook, com performances incríveis."},
+  {"id": 22, "user": "Vanessa Almeida", "movie": "O Labirinto do Fauno", "note": 9.5, "comment": "Uma mistura de fantasia sombria e história real, com uma direção impecável."},
+  {"id": 23, "user": "Paulo Silva", "movie": "Os Suspeitos", "note": 9.4, "comment": "Um thriller psicológico tenso e cheio de reviravoltas, com uma trama envolvente."},
+  {"id": 24, "user": "Luciana Martins", "movie": "O Silêncio dos Inocentes", "note": 9.7, "comment": "Um suspense psicológico profundo, com atuações memoráveis de Anthony Hopkins e Jodie Foster."},
+  {"id": 25, "user": "Daniel Oliveira", "movie": "Inception", "note": 9.1, "comment": "Uma exploração complexa dos sonhos e da mente humana, com efeitos visuais impressionantes."}
+]
