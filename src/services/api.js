@@ -1,4 +1,4 @@
-import http from '../services/http';
+import http from '../config/http';
 
 export async function getDataApi() {
   const rating = await http.get('/datas');
@@ -10,6 +10,24 @@ export async function deleteRatingApi(id) {
     await http.delete(`/datas/${id}`);
   }
   catch (error) {
-    throw new Error(error);
+    throw new Error('Não foi possível excluir a avaliação');
+  }
+}
+
+export async function createRatingApi(data) {
+  try {
+    await http.post('/datas', data);
+  }
+  catch (error) {
+    throw new Error('Não foi possível criar a avaliação');
+  }
+}
+
+export async function updateRatingApi(data) {
+  try {
+    await http.patch(`/datas/${data.id}`, data);
+  }
+  catch (error) {
+    throw new Error('Não foi possível atualizar a avaliação');
   }
 }

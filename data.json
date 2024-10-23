@@ -57,13 +57,6 @@
       "comment": "Um thriller psicológico desafiador e criativo, com um elenco de primeira."
     },
     {
-      "id": "13",
-      "user": "Juliana Rocha",
-      "movie": "O Clube da Luta",
-      "note": 9.1,
-      "comment": "Uma reflexão profunda sobre consumismo e identidade, com uma virada de roteiro impressionante."
-    },
-    {
       "id": "14",
       "user": "Eduardo Almeida",
       "movie": "Gladiador",
@@ -146,6 +139,27 @@
       "movie": "Inception",
       "note": 9.1,
       "comment": "Uma exploração complexa dos sonhos e da mente humana, com efeitos visuais impressionantes."
+    },
+    {
+      "id": "c9c0",
+      "user": "dsadsa",
+      "movie": "dsadsa",
+      "note": "dsadsa",
+      "comment": "dsadsa"
+    },
+    {
+      "id": "0f55",
+      "user": "dsa",
+      "movie": "dsa",
+      "note": "dsa",
+      "comment": "dsa"
+    },
+    {
+      "id": "13",
+      "user": "Juliana Rocha",
+      "movie": "O Clube da Luta",
+      "note": "9.6",
+      "comment": "Uma reflexão profunda sobre consumismo e identidade, com uma virada de roteiro impressionante."
     }
   ]
 }

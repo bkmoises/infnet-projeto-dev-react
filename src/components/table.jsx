@@ -1,6 +1,8 @@
 import { columns } from '../config/rating-columns';
+import { FaTrashCan } from "react-icons/fa6";
+import { FaEdit } from "react-icons/fa";
 
-const Table = ({ datas, deleteFn }) => {
+const Table = ({ datas, deleteFn, editForm }) => {
 
   return (
     <table>
@@ -22,10 +24,11 @@ const Table = ({ datas, deleteFn }) => {
             <td className='nota'>{data.note}</td>
             <td className='comentario'>{data.comment}</td>
             <td>
-              <button href='#' className='btn btn-editar'>Editar</button>
+              <button onClick={() => editForm(data)} className='btn btn-editar'><FaEdit /></button>
             </td>
             <td>
-              <button onClick={() => deleteFn(data.id)} className='btn btn-excluir'>Excluir</button>
+            
+              <button onClick={() => deleteFn(data.id)} className='btn btn-excluir'><FaTrashCan /></button>
             </td>
           </tr>
         ))}
