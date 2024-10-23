@@ -1,23 +1,44 @@
 import "./assets/styleGlobal.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "./components/layout";
 import Table from './components/table';
-
-import datas from '../data.json'
-
-const columns = ['Id', 'Usuario', 'Filme', 'Nota', 'Comentario']
+import { getDataApi, deleteRatingApi } from './services/api';
 
 function App() {
+
+  const [data, setData] = useState([]);
+
+    const deleteRating = async (id) => {
+
+    try {
+      await deleteRatingApi(id);
+      await getData();
+    }
+    catch (error) {
+      alert('Erro ao excluir avaliação');
+    }
+  }
+
+  const getData = async () => {
+      const fetchedData = await getDataApi();
+      setData(fetchedData);
+  }
+
+
   useEffect(() => {
     const link = document.querySelector("link[rel~='icon']");
+
     if (link) {
-      link.href = '../public/icon.png';
+      link.href = '/icon.png';
     }
+
+    getData();
+
   }, []);
 
   return (
     <Layout>
-      <Table columns={columns} datas={datas} />
+      <Table datas={data} deleteFn={deleteRating} />
     </Layout>
   );
 }

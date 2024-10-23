@@ -36,6 +36,10 @@ nav a {
   font-weight: bold;
 }
 
+nav a:hover {
+  background-color: #ddd;
+}
+
 main {
   padding: 16px;
   min-height: 400px;
@@ -77,18 +81,27 @@ table td a {
   border-radius: 4px;
 }
 
-.btn-editar {
-  background-color: #5bc0de;
+.btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-editar {
+  background-color: #5bc0de;
+}
+
 .btn-excluir {
   background-color: #d9534f;
-  font-size: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 .comentario {

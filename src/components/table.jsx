@@ -1,9 +1,12 @@
-const Table = ({ columns, datas }) => {
+import { columns } from '../config/rating-columns';
+
+const Table = ({ datas, deleteFn }) => {
+
   return (
     <table>
       <thead>
         <tr>
-          {columns.map((column, i) => (
+          {columns.rating.map((column, i) => (
             <th key={i}>{column}</th>
           ))}
           <th>Editar</th>
@@ -19,10 +22,10 @@ const Table = ({ columns, datas }) => {
             <td className='nota'>{data.note}</td>
             <td className='comentario'>{data.comment}</td>
             <td>
-              <a href='#' className='btn-editar'>Editar</a>
+              <button href='#' className='btn btn-editar'>Editar</button>
             </td>
             <td>
-              <a href='#' className='btn-excluir'>Excluir</a>
+              <button onClick={() => deleteFn(data.id)} className='btn btn-excluir'>Excluir</button>
             </td>
           </tr>
         ))}
