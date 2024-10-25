@@ -31,3 +31,13 @@ export async function updateRatingApi(data) {
     throw new Error('Não foi possível atualizar a avaliação');
   }
 }
+
+export async function getDataByIdApi(id) {
+  try {
+    const rating = await http.get(`/datas/${id}`);
+    return rating.data;
+  }
+  catch (error) {
+    throw new Error('Avaliação não encontrada');
+  }  
+}

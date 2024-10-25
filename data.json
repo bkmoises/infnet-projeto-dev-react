@@ -18,7 +18,7 @@
       "id": "3",
       "user": "Fernanda Rocha",
       "movie": "A Vida é Bela",
-      "note": 9.8,
+      "note": "9.2",
       "comment": "Emocionante e comovente, uma história inesquecível sobre amor e sacrifício."
     },
     {
@@ -139,20 +139,6 @@
       "movie": "Inception",
       "note": 9.1,
       "comment": "Uma exploração complexa dos sonhos e da mente humana, com efeitos visuais impressionantes."
-    },
-    {
-      "id": "c9c0",
-      "user": "dsadsa",
-      "movie": "dsadsa",
-      "note": "dsadsa",
-      "comment": "dsadsa"
-    },
-    {
-      "id": "0f55",
-      "user": "dsa",
-      "movie": "dsa",
-      "note": "dsa",
-      "comment": "dsa"
     },
     {
       "id": "13",

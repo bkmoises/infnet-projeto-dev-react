@@ -1,9 +1,11 @@
 import { columns } from '../config/rating-columns';
 import { FaTrashCan } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const Table = ({ datas, deleteFn, editForm }) => {
-
+  const navigate = useNavigate();
+  
   return (
     <table>
       <thead>
@@ -24,7 +26,7 @@ const Table = ({ datas, deleteFn, editForm }) => {
             <td className='nota'>{data.note}</td>
             <td className='comentario'>{data.comment}</td>
             <td>
-              <button onClick={() => editForm(data)} className='btn btn-editar'><FaEdit /></button>
+              <button onClick={() => navigate(`/detalhes/${data.id}`)} className='btn btn-editar'><FaEdit /></button>
             </td>
             <td>
             

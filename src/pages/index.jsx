@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./assets/styleGlobal.css";
-import Layout from "./components/layout";
-import Table from "./components/table";
-import Form from "./components/form";
-import Top from "./components/top";
-import { getDataApi, deleteRatingApi, updateRatingApi } from "./services/api";
+import "../assets/styleGlobal.css";
+import Table from "../components/table";
+import Form from "../components/form";
+import { getDataApi, deleteRatingApi } from "../services/api";
 
 
 function App() {
@@ -51,10 +49,9 @@ function App() {
   }, [showList]);
 
   return (
-    <Layout>
-      <Top show={showList} act={cadastro}/>
+    <>
       { showList ? <Table datas={data} deleteFn={deleteRating} editForm={editForm} /> : <Form act={setShowList} form={form} setForm={setForm} update={update} /> }
-    </Layout>
+    </>
   );
 }
 
