@@ -9,8 +9,7 @@ function Layout({ children }) {
     <>
         <Container>
         <Header />
-        <Menu />
-        <main>{children}</main>
+        <main className='min-h-svh'>{children}</main>
         <Footer />
         </Container>
     </>

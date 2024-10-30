@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Menu() {
 
@@ -26,15 +26,6 @@ function Menu() {
         </NavLink>
       ))}
     </nav>
-
-    // <nav>
-    //   <Link to="/">Inicio</Link>
-    //   <Link to="/avaliar">Avaliar</Link>
-    //   <Link to="/filmes">Filmes</Link>
-    //   <Link to="/series">Séries</Link>
-    //   <Link to="/top-filmes">Top Filmes</Link>
-    //   <Link to="/top-series">Top Séries</Link>
-    // </nav>
   );
 }
 

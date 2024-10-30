@@ -1,3 +1,3 @@
 export const columns = {
-  rating: ['Id', 'Usuario', 'Filme', 'Nota', 'Comentario']
+  rating: ['Id', 'Usuário', 'Filme', 'Nota', 'Comentário']
 }

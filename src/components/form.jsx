@@ -1,31 +1,65 @@
-import "../assets/styleGlobal.css";
-import React, { useState } from "react";
-import { createRatingApi, updateRatingApi } from "../services/api";
-
 function Form({ rating, change, submit }) {
   return (
-    <div className="cadastro">
-      <div className="field">
-        <label htmlFor="nome">Nome:</label>
-        <input value={rating.user ?? ''} onChange={(e) => change('user', e.target.value)} type="text" placeholder="Digite seu nome" />
+    <div className="cadastro max-w-sm mx-auto">
+      <div className="field mb-5">
+        <label htmlFor="user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-20">Nome:</label>
+        <input
+          value={rating.user ?? ''}
+          onChange={(e) => change('user', e.target.value)}
+          type="text"
+          id="user"
+          placeholder="Digite seu nome"
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        />
       </div>
-      <div className="field">
-        <label htmlFor="filme">Filme:</label>
-        <input value={rating.movie ?? ''} onChange={(e) => change('movie', e.target.value)} type="text" placeholder="Digite o nome do filme" />
+
+      <div className="field mb-5">
+        <label htmlFor="movie" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Filme:</label>
+        <input
+          value={rating.movie ?? ''}
+          onChange={(e) => change('movie', e.target.value)}
+          type="text"
+          id="movie"
+          placeholder="Digite o nome do filme"
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        />
       </div>
-      <div className="field">
-        <label htmlFor="nota">Nota:</label>
-        <input value={rating.note ?? ''} onChange={(e) => change('note', e.target.value)} type="text" placeholder="Digite sua nota" />
+
+      <div className="field mb-5">
+        <label htmlFor="note" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nota:</label>
+        <input
+          value={rating.note ?? ''}
+          onChange={(e) => change('note', e.target.value)}
+          type="text"
+          id="note"
+          placeholder="Digite sua nota"
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        />
       </div>
-      <div className="field">
-        <label htmlFor="comentario">Comentario:</label>
-        <input value={rating.comment ?? ''} onChange={(e) => change('comment', e.target.value)} type="email" placeholder="Insira seu comentário" />
+
+      <div className="field mb-5">
+        <label htmlFor="comment" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentário:</label>
+        <textarea
+          value={rating.comment ?? ''}
+          onChange={(e) => change('comment', e.target.value)}
+          id="comment"
+          rows="4"
+          placeholder="Insira seu comentário"
+          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        ></textarea>
       </div>
 
       <div className="publicar">
-        <button onClick={() => submit(rating)}>
+        <button
+          onClick={() => submit(rating)}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
           Publicar
-          </button>
+        </button>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../assets/styleGlobal.css";
 import Table from "../components/table";
 import Form from "../components/form";
 import { getDataApi, deleteRatingApi } from "../services/api";

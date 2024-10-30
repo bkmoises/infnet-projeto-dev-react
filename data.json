@@ -99,13 +99,6 @@
       "comment": "Um dos maiores filmes de terror de todos os tempos, com uma atmosfera de medo insuportável."
     },
     {
-      "id": "20",
-      "user": "Patrícia Martins",
-      "movie": "Vingadores: Ultimato",
-      "note": 8.8,
-      "comment": "Uma conclusão épica para a saga dos Vingadores, cheia de ação e emoção."
-    },
-    {
       "id": "21",
       "user": "Rodrigo Souza",
       "movie": "A Rede Social",
@@ -146,6 +139,13 @@
       "movie": "O Clube da Luta",
       "note": "9.6",
       "comment": "Uma reflexão profunda sobre consumismo e identidade, com uma virada de roteiro impressionante."
+    },
+    {
+      "id": "d3f7",
+      "user": "Natalia",
+      "movie": "O Conde de Monte Cristo",
+      "note": "7",
+      "comment": "Ótimo Filme!"
     }
   ]
 }
