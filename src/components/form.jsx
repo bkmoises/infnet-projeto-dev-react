@@ -1,11 +1,31 @@
-function Form({ rating, change, submit }) {
+import { useDispatch, useSelector } from "react-redux";
+import { editForm, saveForm } from "../store/slices/rating/actions";
+import { useNavigate } from "react-router-dom";
+
+function Form({ isEdit }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const rating = useSelector((state) => state.rating.rating);
+
+  const changeField = (field, value) => dispatch(editForm(field, value));
+
+  const submitForm = () => {
+    try {
+      dispatch(saveForm(isEdit));
+      alert('Avaliação atualizada com sucesso');
+      navigate('/');
+    } catch(error) {
+      alert('Não foi possivel completar essa solicitação')
+    }
+  }
+
   return (
     <div className="cadastro max-w-sm mx-auto">
       <div className="field mb-5">
         <label htmlFor="user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-20">Nome:</label>
         <input
           value={rating.user ?? ''}
-          onChange={(e) => change('user', e.target.value)}
+          onChange={(e) => changeField('user', e.target.value)}
           type="text"
           id="user"
           placeholder="Digite seu nome"
@@ -18,7 +38,7 @@ function Form({ rating, change, submit }) {
         <label htmlFor="movie" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Filme:</label>
         <input
           value={rating.movie ?? ''}
-          onChange={(e) => change('movie', e.target.value)}
+          onChange={(e) => changeField('movie', e.target.value)}
           type="text"
           id="movie"
           placeholder="Digite o nome do filme"
@@ -31,7 +51,7 @@ function Form({ rating, change, submit }) {
         <label htmlFor="note" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nota:</label>
         <input
           value={rating.note ?? ''}
-          onChange={(e) => change('note', e.target.value)}
+          onChange={(e) => changeField('note', e.target.value)}
           type="text"
           id="note"
           placeholder="Digite sua nota"
@@ -44,7 +64,7 @@ function Form({ rating, change, submit }) {
         <label htmlFor="comment" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentário:</label>
         <textarea
           value={rating.comment ?? ''}
-          onChange={(e) => change('comment', e.target.value)}
+          onChange={(e) => changeField('comment', e.target.value)}
           id="comment"
           rows="4"
           placeholder="Insira seu comentário"
@@ -55,7 +75,7 @@ function Form({ rating, change, submit }) {
 
       <div className="publicar">
         <button
-          onClick={() => submit(rating)}
+          onClick={submitForm}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Publicar

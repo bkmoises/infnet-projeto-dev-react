@@ -2,9 +2,19 @@ import { columns } from '../config/rating-columns';
 import { FaTrashCan } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteRating } from "../store/slices/rating/actions";
 
-const Table = ({ datas, deleteFn, editForm }) => {
+const Table = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { ratings } = useSelector((state) => state.rating); 
+
+  const handleDeleteRating = async (id) => {
+    if (window.confirm("Tem certeza que deseja excluir esta avaliação?")) {
+      await dispatch(deleteRating(id)); 
+    }
+  };
 
   return (
     <div className="relative overflow-x-auto shadow-md mt-10">
@@ -19,29 +29,29 @@ const Table = ({ datas, deleteFn, editForm }) => {
           </tr>
         </thead>
         <tbody>
-          {datas.map((data, i) => (
+          {ratings.map((rating, i) => (
             <tr 
               key={i} 
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             >
               <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {data.id}
+                {rating.id}
               </td>
               <td className="px-6 py-4">
-                {data.user}
+                {rating.user}
               </td>
               <td className="px-6 py-4">
-                {data.movie}
+                {rating.movie}
               </td>
               <td className="px-6 py-4">
-                {data.note}
+                {rating.note}
               </td>
               <td className="px-6 py-4">
-                {data.comment}
+                {rating.comment}
               </td>
               <td className="px-6 py-4 text-center">
                 <button 
-                  onClick={() => navigate(`/detalhes/${data.id}`)} 
+                  onClick={() => navigate(`/detalhes/${rating.id}`)} 
                   className="btn btn-editar text-blue-600 hover:underline"
                 >
                   <FaEdit />
@@ -49,7 +59,7 @@ const Table = ({ datas, deleteFn, editForm }) => {
               </td>
               <td className="px-6 py-4 text-center">
                 <button 
-                  onClick={() => deleteFn(data.id)} 
+                  onClick={() => handleDeleteRating(rating.id)} 
                   className="btn btn-excluir text-red-600 hover:underline"
                 >
                   <FaTrashCan />

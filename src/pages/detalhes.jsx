@@ -1,47 +1,25 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Form from "../components/form";
-import { getDataByIdApi, updateRatingApi } from "../services/api";
 import ErrorRating from "../components/error";
+import { useDispatch, useSelector } from "react-redux";
+import { getRating } from "../store/slices/rating/actions";
 
 function Detalhes() {
     let { id } = useParams();
-    const navigate = useNavigate();
-    const [rating, setRating] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        (async () => {
-            const rating = await getDataByIdApi(id);
-            setRating(rating);
-        })()
+        dispatch(getRating(id));
     }, [id]);
 
-    const setChange = (field, value) => {
-        setRating({
-            ...rating,
-            [field]: value
-        })
-    }
-
-    const updateRating = async () => {
-        try {
-            await updateRatingApi(rating);
-            alert('Avaliação atualizada com sucesso');
-            setRating({});
-            navigate('/');
-        } catch (error) {
-            alert('Não foi possível atualizar a avaliação');
-        }
-    }
-
-    if (!rating) {
-        return <ErrorRating />
-    }
+    // if (!rating) {
+    //     return <ErrorRating />
+    // }
 
     return (
-        <Form rating={rating || {}} change={setChange} submit={updateRating} />
-    )
+        <Form isEdit />
+    );
 }
 
 export default Detalhes;

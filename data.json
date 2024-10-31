@@ -18,21 +18,14 @@
       "id": "3",
       "user": "Fernanda Rocha",
       "movie": "A Vida é Bela",
-      "note": "9.2",
+      "note": "9.1",
       "comment": "Emocionante e comovente, uma história inesquecível sobre amor e sacrifício."
-    },
-    {
-      "id": "4",
-      "user": "Gustavo Almeida",
-      "movie": "Matrix",
-      "note": 9,
-      "comment": "Uma revolução no gênero de ficção científica, com cenas de ação incríveis."
     },
     {
       "id": "7",
       "user": "Ana Costa",
       "movie": "Interestelar",
-      "note": 9.3,
+      "note": "3",
       "comment": "Uma jornada cinematográfica impressionante, que mistura ficção científica com drama emocional."
     },
     {
@@ -46,7 +39,7 @@
       "id": "11",
       "user": "Mariana Pires",
       "movie": "O Senhor dos Anéis: A Sociedade do Anel",
-      "note": 9.5,
+      "note": "9.7",
       "comment": "Uma adaptação épica e emocionante, que traz à vida a magia da Terra-média."
     },
     {
@@ -60,21 +53,21 @@
       "id": "14",
       "user": "Eduardo Almeida",
       "movie": "Gladiador",
-      "note": 9.3,
+      "note": "9.2",
       "comment": "Uma história de honra e vingança, com atuações épicas e cenas de batalha de tirar o fôlego."
     },
     {
       "id": "15",
       "user": "Larissa Martins",
       "movie": "Pulp Fiction",
-      "note": 9,
+      "note": "9",
       "comment": "Um filme revolucionário que redefine a narrativa não linear e apresenta um elenco impecável."
     },
     {
       "id": "16",
       "user": "Gustavo Araújo",
       "movie": "O Rei Leão",
-      "note": 10,
+      "note": "8",
       "comment": "Um filme atemporal, com uma animação deslumbrante e uma história que toca o coração."
     },
     {
@@ -109,7 +102,7 @@
       "id": "22",
       "user": "Vanessa Almeida",
       "movie": "O Labirinto do Fauno",
-      "note": 9.5,
+      "note": "8",
       "comment": "Uma mistura de fantasia sombria e história real, com uma direção impecável."
     },
     {
