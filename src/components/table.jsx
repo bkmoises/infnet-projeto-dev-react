@@ -10,11 +10,7 @@ const Table = () => {
   const dispatch = useDispatch();
   const { ratings } = useSelector((state) => state.rating); 
 
-  const handleDeleteRating = async (id) => {
-    if (window.confirm("Tem certeza que deseja excluir esta avaliação?")) {
-      await dispatch(deleteRating(id)); 
-    }
-  };
+  const handleDeleteRating = async (id) => await dispatch(deleteRating(id));
 
   return (
     <div className="relative overflow-x-auto shadow-md mt-10">

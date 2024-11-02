@@ -9,15 +9,17 @@ function Form({ isEdit }) {
 
   const changeField = (field, value) => dispatch(editForm(field, value));
 
-  const submitForm = () => {
-    try {
-      dispatch(saveForm(isEdit));
-      alert('Avaliação atualizada com sucesso');
-      navigate('/');
-    } catch(error) {
-      alert('Não foi possivel completar essa solicitação')
-    }
-  }
+  // const submitForm = () => {
+  //   try {
+  //     dispatch(saveForm(isEdit));
+  //     alert('Avaliação atualizada com sucesso');
+  //     navigate('/');
+  //   } catch(error) {
+  //     alert('Não foi possivel completar essa solicitação')
+  //   }
+  // }
+
+  const submitForm = () => dispatch(saveForm(isEdit)).then(() => navigate('/'));
 
   return (
     <div className="cadastro max-w-sm mx-auto">

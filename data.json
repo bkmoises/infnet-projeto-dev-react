@@ -18,127 +18,148 @@
       "id": "3",
       "user": "Fernanda Rocha",
       "movie": "A Vida é Bela",
-      "note": "9.1",
+      "note": 9.1,
       "comment": "Emocionante e comovente, uma história inesquecível sobre amor e sacrifício."
     },
     {
-      "id": "7",
+      "id": "4",
       "user": "Ana Costa",
       "movie": "Interestelar",
-      "note": "3",
+      "note": 3,
       "comment": "Uma jornada cinematográfica impressionante, que mistura ficção científica com drama emocional."
     },
     {
-      "id": "10",
+      "id": "5",
       "user": "Lucas Oliveira",
       "movie": "Cidadão Kane",
       "note": 9.7,
       "comment": "Um clássico do cinema, que define o padrão para narrativa e direção cinematográfica."
     },
     {
-      "id": "11",
+      "id": "6",
       "user": "Mariana Pires",
       "movie": "O Senhor dos Anéis: A Sociedade do Anel",
-      "note": "9.7",
+      "note": 9.7,
       "comment": "Uma adaptação épica e emocionante, que traz à vida a magia da Terra-média."
     },
     {
-      "id": "12",
+      "id": "7",
       "user": "Ricardo Santos",
       "movie": "A Origem",
-      "note": 9.4,
+      "note": 9.5,
       "comment": "Um thriller psicológico desafiador e criativo, com um elenco de primeira."
     },
     {
-      "id": "14",
+      "id": "8",
       "user": "Eduardo Almeida",
       "movie": "Gladiador",
-      "note": "9.2",
+      "note": 9.4,
       "comment": "Uma história de honra e vingança, com atuações épicas e cenas de batalha de tirar o fôlego."
     },
     {
-      "id": "15",
+      "id": "9",
       "user": "Larissa Martins",
       "movie": "Pulp Fiction",
-      "note": "9",
+      "note": 9,
       "comment": "Um filme revolucionário que redefine a narrativa não linear e apresenta um elenco impecável."
     },
     {
-      "id": "16",
+      "id": "10",
       "user": "Gustavo Araújo",
       "movie": "O Rei Leão",
-      "note": "8",
+      "note": 8,
       "comment": "Um filme atemporal, com uma animação deslumbrante e uma história que toca o coração."
     },
     {
-      "id": "17",
+      "id": "11",
       "user": "Beatriz Silva",
       "movie": "O Grande Lebowski",
       "note": 8.9,
       "comment": "Uma comédia cult com personagens excêntricos e diálogos memoráveis."
     },
     {
-      "id": "18",
+      "id": "12",
       "user": "Fabiana Oliveira",
       "movie": "O Vingador do Futuro",
       "note": 8.6,
       "comment": "Uma ficção científica cheia de ação e com um roteiro intrigante."
     },
     {
-      "id": "19",
+      "id": "13",
       "user": "André Costa",
       "movie": "O Exorcista",
       "note": 9.2,
       "comment": "Um dos maiores filmes de terror de todos os tempos, com uma atmosfera de medo insuportável."
     },
     {
-      "id": "21",
+      "id": "14",
       "user": "Rodrigo Souza",
       "movie": "A Rede Social",
       "note": 9,
       "comment": "Um drama fascinante sobre a criação do Facebook, com performances incríveis."
     },
     {
-      "id": "22",
+      "id": "15",
       "user": "Vanessa Almeida",
       "movie": "O Labirinto do Fauno",
-      "note": "8",
+      "note": 8,
       "comment": "Uma mistura de fantasia sombria e história real, com uma direção impecável."
     },
     {
-      "id": "23",
+      "id": "16",
       "user": "Paulo Silva",
       "movie": "Os Suspeitos",
-      "note": 9.4,
+      "note": 9.6,
       "comment": "Um thriller psicológico tenso e cheio de reviravoltas, com uma trama envolvente."
     },
     {
-      "id": "24",
-      "user": "Luciana Martins",
-      "movie": "O Silêncio dos Inocentes",
-      "note": 9.7,
-      "comment": "Um suspense psicológico profundo, com atuações memoráveis de Anthony Hopkins e Jodie Foster."
+      "id": "17",
+      "user": "Lucas Oliveira",
+      "movie": "La La Land",
+      "note": 9,
+      "comment": "Uma obra-prima moderna com músicas que ficam na cabeça."
     },
     {
-      "id": "25",
-      "user": "Daniel Oliveira",
-      "movie": "Inception",
+      "id": "18",
+      "user": "Mariana Pires",
+      "movie": "Coringa",
+      "note": 9.2,
+      "comment": "Um estudo de personagem que é tanto perturbador quanto fascinante."
+    },
+    {
+      "id": "19",
+      "user": "Ricardo Santos",
+      "movie": "A Vida é Bela",
+      "note": 9.3,
+      "comment": "Uma história emocionante que nunca deixa de tocar o coração."
+    },
+    {
+      "id": "20",
+      "user": "Ana Costa",
+      "movie": "O Senhor dos Anéis: A Sociedade do Anel",
+      "note": 9.8,
+      "comment": "Uma das melhores adaptações de livros que já vi, visualmente deslumbrante."
+    },
+    {
+      "id": "21",
+      "user": "Eduardo Almeida",
+      "movie": "Cidadão Kane",
+      "note": 9.5,
+      "comment": "Um filme que redefine o que significa contar uma boa história."
+    },
+    {
+      "id": "22",
+      "user": "Gustavo Araújo",
+      "movie": "Gladiador",
+      "note": 9,
+      "comment": "Uma produção épica com atuações memoráveis."
+    },
+    {
+      "id": "23",
+      "user": "Fabiana Oliveira",
+      "movie": "Pulp Fiction",
       "note": 9.1,
-      "comment": "Uma exploração complexa dos sonhos e da mente humana, com efeitos visuais impressionantes."
-    },
-    {
-      "id": "13",
-      "user": "Juliana Rocha",
-      "movie": "O Clube da Luta",
-      "note": "9.6",
-      "comment": "Uma reflexão profunda sobre consumismo e identidade, com uma virada de roteiro impressionante."
-    },
-    {
-      "id": "d3f7",
-      "user": "Natalia",
-      "movie": "O Conde de Monte Cristo",
-      "note": "7",
-      "comment": "Ótimo Filme!"
+      "comment": "Um dos filmes mais influentes da década, com um enredo incrível."
     }
   ]
 }
