@@ -55,7 +55,7 @@ Para executar a aplicação localmente, siga as etapas abaixo:
 3. **Inicie o Servidor JSON**:
    Para simular o backend da aplicação usando JSON Server, execute o comando:
    ```bash
-   npx json-server --watch db.json --port 3000
+   npx json-server --watch data.json --port 3000
    ```
    Este comando inicia o servidor JSON em `http://localhost:3000`, onde `data.json` é o arquivo que contém os dados fictícios.
 
