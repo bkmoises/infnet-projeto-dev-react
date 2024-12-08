@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Form from "../components/form";
-import ErrorRating from "../components/error";
+import ErrorMsg from "../components/error";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCar } from "../store/slices/car/actions";
 
 function Detalhes() {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const rating = useSelector((state) => state.rating.rating);
+    const car = useSelector((state) => state.car.car);
 
     useEffect(() => {
         dispatch(getAllCar(id));
     }, [dispatch, id]);
 
-    if (!rating || Object.keys(rating).length === 0) {
-        return <ErrorRating />;
+    if (!car || Object.keys(car).length === 0) {
+        return <ErrorMsg />;
     }
 
-    return <Form isEdit rating={rating} />;
+    return <Form isEdit car={car} />;
 }
 
 export default Detalhes;

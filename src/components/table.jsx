@@ -8,7 +8,7 @@ import { deleteCar } from "../store/slices/car/actions";
 const Table = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { ratings } = useSelector((state) => state.rating); 
+  const { cars } = useSelector((state) => state.car); 
 
   const handleDeleteCar = async (id) => await dispatch(deleteCar(id));
 
@@ -25,35 +25,35 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {ratings.map((rating, i) => (
+          {cars.map((car, i) => (
             <tr 
               key={i} 
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
             >
               <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {rating.id}
+                {car.id}
               </td>
               <td className="px-6 py-4">
-                {rating.fabricante}
+                {car.fabricante}
               </td>
               <td className="px-6 py-4">
-                {rating.modelo}
+                {car.modelo}
               </td>
               <td className="px-6 py-4">
-                {rating.ano}
+                {car.ano}
               </td>
               <td className="px-6 py-4">
-                {rating.cor}
+                {car.cor}
               </td>
               <td className="px-6 py-4">
-                {rating.cavalosDePotencia}
+                {car.cavalosDePotencia}
               </td>
               <td className="px-6 py-4">
-                {rating.pais}
+                {car.pais}
               </td>
               <td className="px-6 py-4 text-center">
                 <button 
-                  onClick={() => navigate(`/detalhes/${rating.id}`)} 
+                  onClick={() => navigate(`/detalhes/${car.id}`)} 
                   className="btn btn-editar text-blue-600 hover:underline"
                 >
                   <FaEdit />
@@ -61,7 +61,7 @@ const Table = () => {
               </td>
               <td className="px-6 py-4 text-center">
                 <button 
-                  onClick={() => handleDeleteCar(rating.id)} 
+                  onClick={() => handleDeleteCar(car.id)} 
                   className="btn btn-excluir text-red-600 hover:underline"
                 >
                   <FaTrashCan />

@@ -1,11 +1,11 @@
-import { setRatings, setRating, setSortedRatings } from "./reducer";
+import { setCars, setCar, setSortedCars } from "./reducer";
 import { getDataApi, getDataByIdApi, updateCarApi, createCarApi, deleteCarApi } from '../../../services/api';
 import Swal from "sweetalert2";
 
 export const getAllCars = () => async (dispatch) => {
     try {
         const res = await getDataApi();
-        dispatch(setRatings(res));
+        dispatch(setCars(res));
     } catch (error) {
         console.log(`erro: ${error}`);
     }
@@ -14,26 +14,26 @@ export const getAllCars = () => async (dispatch) => {
 export const getAllCar = (id) => async (dispatch) => {
     try {
         const res = await getDataByIdApi(id);
-        dispatch(setRating(res));
+        dispatch(setCar(res));
     } catch (error) {
         console.log(`erro: ${error}`);
     }
 };
 
 export const editForm = (field, value) => async (dispatch, getState) => {
-    const { rating } = getState().rating;
-    dispatch(setRating({
-        ...rating,
+    const { car } = getState().car;
+    dispatch(setCar({
+        ...car,
         [field]: value
     }));
 };
 
 export const saveForm = (editForm=false) => async (dispatch, getState) => {
     try {
-        const { rating } = getState().rating;
+        const { car } = getState().car;
 
         const action = editForm ? updateCarApi : createCarApi;
-        await action(rating);
+        await action(car);
         dispatch(getAllCars());
 
         Swal.fire({
@@ -89,9 +89,9 @@ export const deleteCar = (id) => async (dispatch) => {
 };
 
 export const getSortedCars = () => (dispatch, getState) => {
-    const { ratings } = getState().rating;
+    const { cars } = getState().car;
 
-    const filmesAgrupados = ratings.reduce((acc, filme) => {
+    const filmesAgrupados = cars.reduce((acc, filme) => {
         const { movie, note } = filme;
 
         if (!acc[movie]) {
@@ -106,10 +106,10 @@ export const getSortedCars = () => (dispatch, getState) => {
 
     const filmesComMedia = Object.keys(filmesAgrupados).map((movie) => ({
         title: movie,
-        averageRating: filmesAgrupados[movie].total / filmesAgrupados[movie].count,
+        averageCar: filmesAgrupados[movie].total / filmesAgrupados[movie].count,
     }));
 
-    const filmesOrdenados = filmesComMedia.sort((a, b) => b.averageRating - a.averageRating);
+    const filmesOrdenados = filmesComMedia.sort((a, b) => b.averageCar - a.averageCar);
 
-    dispatch(setSortedRatings(filmesOrdenados));
+    dispatch(setSortedCars(filmesOrdenados));
 };

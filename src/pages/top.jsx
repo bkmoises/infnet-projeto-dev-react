@@ -4,7 +4,7 @@ import { getAllCars, getSortedCars } from "../store/slices/car/actions";
 
 const FilmesClassificados = () => {
     const dispatch = useDispatch();
-    const filmesOrdenados = useSelector((state) => state.rating.sortedRatings);
+    const filmesOrdenados = useSelector((state) => state.car.getSortedCars);
 
     useEffect(() => {
         dispatch(getAllCars());
@@ -40,7 +40,7 @@ const FilmesClassificados = () => {
                                         {filme.title}
                                     </td>
                                     <td className="px-6 py-4 font-medium text-gray-300">
-                                        {filme.averageRating.toFixed(2)}
+                                        {filme.averageCar.toFixed(2)}
                                     </td>
                                 </tr>
                             ))

@@ -1,30 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  ratings: [],
-  rating: {},
-  sortedRatings: [],
+  cars: [],
+  car: {},
+  sortedCars: [],
 };
 
 export const counterSlice = createSlice({
-  name: 'rating',
+  name: 'car',
   initialState,
   reducers: {
-    setRatings: (state, action) => {
-      state.ratings = action.payload;
+    setCars: (state, action) => {
+      state.cars = action.payload;
     },
-    setRating: (state, action) => {
-      state.rating = action.payload;
+    setCar: (state, action) => {
+      state.car = action.payload;
     },
     resetCar: (state) => {
-      state.rating = {};
+      state.car = {};
     },
-    setSortedRatings: (state, action) => {
-      state.sortedRatings = action.payload;
+    setSortedCars: (state, action) => {
+      state.sortedCars = action.payload;
     },
   },
 });
 
-export const { setRatings, setRating, resetCar, setSortedRatings } = counterSlice.actions;
+export const { setCars, setCar, resetCar, setSortedCars } = counterSlice.actions;
 
 export default counterSlice.reducer;

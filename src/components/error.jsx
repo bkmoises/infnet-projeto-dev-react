@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ErrorRating() {
+function ErrorMsg() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen text-center p-6 bg-gray-900">
             <h2 className="text-2xl font-bold text-white mb-2">Avaliação não encontrada</h2>
@@ -15,4 +15,4 @@ function ErrorRating() {
     );
 }
 
-export default ErrorRating;
+export default ErrorMsg;

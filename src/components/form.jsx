@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Form({ isEdit }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const rating = useSelector((state) => state.rating.rating);
+  const car = useSelector((state) => state.car.car);
 
   const changeField = (field, value) => dispatch(editForm(field, value));
 
@@ -14,12 +14,12 @@ function Form({ isEdit }) {
   return (
     <div className="cadastro max-w-sm mx-auto">
       <div className="field mb-5">
-        <label htmlFor="user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-20">Nome:</label>
+        <label htmlFor="fabricante" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-20">Fabricante:</label>
         <input
-          value={rating.user ?? ''}
-          onChange={(e) => changeField('user', e.target.value)}
+          value={car.fabricante ?? ''}
+          onChange={(e) => changeField('fabricante', e.target.value)}
           type="text"
-          id="user"
+          id="fabricante"
           placeholder="Digite seu nome"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
@@ -27,12 +27,12 @@ function Form({ isEdit }) {
       </div>
 
       <div className="field mb-5">
-        <label htmlFor="movie" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Filme:</label>
+        <label htmlFor="modelo" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modelo:</label>
         <input
-          value={rating.movie ?? ''}
-          onChange={(e) => changeField('movie', e.target.value)}
+          value={car.modelo ?? ''}
+          onChange={(e) => changeField('modelo', e.target.value)}
           type="text"
-          id="movie"
+          id="modelo"
           placeholder="Digite o nome do filme"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
@@ -40,12 +40,12 @@ function Form({ isEdit }) {
       </div>
 
       <div className="field mb-5">
-        <label htmlFor="note" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nota:</label>
+        <label htmlFor="ano" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano:</label>
         <input
-          value={rating.note ?? ''}
-          onChange={(e) => changeField('note', e.target.value)}
+          value={car.ano ?? ''}
+          onChange={(e) => changeField('ano', e.target.value)}
           type="text"
-          id="note"
+          id="ano"
           placeholder="Digite sua nota"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
@@ -53,16 +53,42 @@ function Form({ isEdit }) {
       </div>
 
       <div className="field mb-5">
-        <label htmlFor="comment" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentário:</label>
-        <textarea
-          value={rating.comment ?? ''}
-          onChange={(e) => changeField('comment', e.target.value)}
-          id="comment"
-          rows="4"
-          placeholder="Insira seu comentário"
-          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        <label htmlFor="cor" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cor:</label>
+        <input
+          value={car.cor ?? ''}
+          onChange={(e) => changeField('cor', e.target.value)}
+          type="text"
+          id="cor"
+          placeholder="Digite sua nota"
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           required
-        ></textarea>
+        />
+      </div>
+
+      <div className="field mb-5">
+        <label htmlFor="cavalosDePotencia" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Potencia:</label>
+        <input
+          value={car.cavalosDePotencia ?? ''}
+          onChange={(e) => changeField('cavalosDePotencia', e.target.value)}
+          type="text"
+          id="cavalosDePotencia"
+          placeholder="Digite sua nota"
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        />
+      </div>
+
+      <div className="field mb-5">
+        <label htmlFor="pais" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pais:</label>
+        <input
+          value={car.pais ?? ''}
+          onChange={(e) => changeField('pais', e.target.value)}
+          type="text"
+          id="pais"
+          placeholder="Digite sua nota"
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required
+        />
       </div>
 
       <div className="publicar">
@@ -70,7 +96,7 @@ function Form({ isEdit }) {
           onClick={submitForm}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Publicar
+          Cadastrar
         </button>
       </div>
     </div>

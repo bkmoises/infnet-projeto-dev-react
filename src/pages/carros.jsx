@@ -1,59 +1,66 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCars } from "../store/slices/car/actions";
 
-const Filmes = () => {
+const Carros = () => {
     const dispatch = useDispatch();
-    const filmes = useSelector((state) => state.rating.ratings);
+    const carros = useSelector((state) => state.car.cars);
+    const [busca, setBusca] = useState("");
 
     useEffect(() => {
         dispatch(getAllCars());
     }, [dispatch]);
 
-    const getUniqueFilmes = (filmes) => {
-        const uniqueFilmesMap = {};
-
-        filmes.forEach((filme) => {
-            if (!uniqueFilmesMap[filme.movie]) {
-                uniqueFilmesMap[filme.movie] = filme;
-            }
-        });
-
-        return Object.values(uniqueFilmesMap);
+    const handleSearchChange = (e) => {
+        setBusca(e.target.value);
     };
 
-    const uniqueFilmes = getUniqueFilmes(filmes);
+    const filteredCars = Array.isArray(carros) ? carros.filter((car) =>
+        car.modelo.toLowerCase().includes(busca.toLowerCase())
+    ) : [];
 
     return (
         <div className="min-h-screen bg-gray-900 text-white p-8">
-            <h1 className="text-3xl font-bold mb-6">Lista de Filmes</h1>
+            <h1 className="text-3xl font-bold mb-6">Lista de Carros</h1>
+            
+            <div className="mb-6">
+                <input
+                    type="text"
+                    placeholder="Digite o nome do modelo"
+                    value={busca}
+                    onChange={handleSearchChange}
+                    className="p-2 w-full bg-gray-700 text-white rounded-lg"
+                />
+            </div>
+
             <div className="relative overflow-x-auto shadow-md mt-10">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th className="px-6 py-3">ID</th>
-                            <th className="px-6 py-3">Título</th>
+                            <th className="px-6 py-3">Fabricante</th>
+                            <th className="px-6 py-3">Modelo</th>
+                            <th className="px-6 py-3">Ano</th>
+                            <th className="px-6 py-3">Cor</th>
+                            <th className="px-6 py-3">Potência</th>
+                            <th className="px-6 py-3">Pais</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {uniqueFilmes.length > 0 ? (
-                            uniqueFilmes.map((filme) => (
-                                <tr 
-                                    key={filme.id} 
-                                    className="bg-gray-800 border-b hover:bg-gray-700"
-                                >
-                                    <td className="px-6 py-4 font-medium text-gray-300">
-                                        {filme.id}
-                                    </td>
-                                    <td className="px-6 py-4 font-medium text-gray-300">
-                                        {filme.movie}
-                                    </td>
+                        {filteredCars.length > 0 ? (
+                            filteredCars.map((car) => (
+                                <tr key={car.id} className="bg-gray-800 border-b hover:bg-gray-700">
+                                    <td className="px-6 py-4 font-medium text-gray-300">{car.fabricante}</td>
+                                    <td className="px-6 py-4 font-medium text-gray-300">{car.modelo}</td>
+                                    <td className="px-6 py-4 font-medium text-gray-300">{car.ano}</td>
+                                    <td className="px-6 py-4 font-medium text-gray-300">{car.cor}</td>
+                                    <td className="px-6 py-4 font-medium text-gray-300">{car.cavalosDePotencia}</td>
+                                    <td className="px-6 py-4 font-medium text-gray-300">{car.pais}</td>
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="2" className="text-center py-4 text-gray-400">
-                                    Nenhum filme encontrado.
+                                <td colSpan="4" className="text-center py-4 text-gray-400">
+                                    Nenhum carro encontrado.
                                 </td>
                             </tr>
                         )}
@@ -64,4 +71,4 @@ const Filmes = () => {
     );
 };
 
-export default Filmes;
+export default Carros;
