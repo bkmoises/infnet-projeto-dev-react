@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import Form from "../components/form";
 import { useEffect } from "react";
-import { resetRating } from "../store/slices/rating/reducer";
+import { resetCar } from "../store/slices/car/reducer";
 
 function Cadastrar() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(resetRating());
+        dispatch(resetCar());
     }, [dispatch]);
 
     return <Form />;

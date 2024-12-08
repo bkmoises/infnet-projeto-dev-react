@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRatings } from "../store/slices/rating/actions";
+import { getAllCars } from "../store/slices/car/actions";
 
 const Filmes = () => {
     const dispatch = useDispatch();
     const filmes = useSelector((state) => state.rating.ratings);
 
     useEffect(() => {
-        dispatch(getAllRatings());
+        dispatch(getAllCars());
     }, [dispatch]);
 
     const getUniqueFilmes = (filmes) => {

@@ -16,7 +16,7 @@ export const counterSlice = createSlice({
     setRating: (state, action) => {
       state.rating = action.payload;
     },
-    resetRating: (state) => {
+    resetCar: (state) => {
       state.rating = {};
     },
     setSortedRatings: (state, action) => {
@@ -25,6 +25,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setRatings, setRating, resetRating, setSortedRatings } = counterSlice.actions;
+export const { setRatings, setRating, resetCar, setSortedRatings } = counterSlice.actions;
 
 export default counterSlice.reducer;

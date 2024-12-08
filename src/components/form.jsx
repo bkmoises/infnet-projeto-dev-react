@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { editForm, saveForm } from "../store/slices/rating/actions";
+import { editForm, saveForm } from "../store/slices/car/actions";
 import { useNavigate } from "react-router-dom";
 
 function Form({ isEdit }) {
@@ -8,16 +8,6 @@ function Form({ isEdit }) {
   const rating = useSelector((state) => state.rating.rating);
 
   const changeField = (field, value) => dispatch(editForm(field, value));
-
-  // const submitForm = () => {
-  //   try {
-  //     dispatch(saveForm(isEdit));
-  //     alert('Avaliação atualizada com sucesso');
-  //     navigate('/');
-  //   } catch(error) {
-  //     alert('Não foi possivel completar essa solicitação')
-  //   }
-  // }
 
   const submitForm = () => dispatch(saveForm(isEdit)).then(() => navigate('/'));
 

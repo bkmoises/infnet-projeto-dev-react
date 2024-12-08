@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "../components/table";
 import { useDispatch } from "react-redux";
-import { getAllRatings, deleteCar } from "../store/slices/rating/actions";
+import { getAllCars } from "../store/slices/car/actions";
 
 function App() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function App() {
     const link = document.querySelector("link[rel~='icon']");
     if (link) link.href = "/icon.png";
 
-    dispatch(getAllRatings());
+    dispatch(getAllCars());
   }, [dispatch]);
 
   return <Table /> 

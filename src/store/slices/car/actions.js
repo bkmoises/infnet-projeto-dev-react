@@ -1,8 +1,8 @@
 import { setRatings, setRating, setSortedRatings } from "./reducer";
-import { getDataApi, getDataByIdApi, updateRatingApi, createRatingApi, deleteCarApi } from '../../../services/api';
+import { getDataApi, getDataByIdApi, updateCarApi, createCarApi, deleteCarApi } from '../../../services/api';
 import Swal from "sweetalert2";
 
-export const getAllRatings = () => async (dispatch) => {
+export const getAllCars = () => async (dispatch) => {
     try {
         const res = await getDataApi();
         dispatch(setRatings(res));
@@ -11,7 +11,7 @@ export const getAllRatings = () => async (dispatch) => {
     }
 };
 
-export const getRating = (id) => async (dispatch) => {
+export const getAllCar = (id) => async (dispatch) => {
     try {
         const res = await getDataByIdApi(id);
         dispatch(setRating(res));
@@ -32,9 +32,9 @@ export const saveForm = (editForm=false) => async (dispatch, getState) => {
     try {
         const { rating } = getState().rating;
 
-        const action = editForm ? updateRatingApi : createRatingApi;
+        const action = editForm ? updateCarApi : createCarApi;
         await action(rating);
-        dispatch(getAllRatings());
+        dispatch(getAllCars());
 
         Swal.fire({
             title: 'Avaliação salva com sucesso',
@@ -71,7 +71,7 @@ export const deleteCar = (id) => async (dispatch) => {
                     confirmButtonText: 'OK'
                 });
             }
-            dispatch(getAllRatings());
+            dispatch(getAllCars());
         }).catch(() => {
             Swal.fire({
                 title: 'Erro ao excluir avaliação',
@@ -88,7 +88,7 @@ export const deleteCar = (id) => async (dispatch) => {
     }
 };
 
-export const getSortedRatings = () => (dispatch, getState) => {
+export const getSortedCars = () => (dispatch, getState) => {
     const { ratings } = getState().rating;
 
     const filmesAgrupados = ratings.reduce((acc, filme) => {

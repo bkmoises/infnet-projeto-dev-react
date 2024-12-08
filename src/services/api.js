@@ -13,8 +13,8 @@ export const getDataApi = () => handleRequest(() => http.get('/carros'), 'Não f
 
 export const deleteCarApi = (id) => handleRequest(() => http.delete(`/carros/${id}`), 'Não foi possível excluir a avaliação');
 
-export const createRatingApi = (data) => handleRequest(() => http.post('/carros', data), 'Não foi possível criar a avaliação');
+export const createCarApi = (data) => handleRequest(() => http.post('/carros', data), 'Não foi possível criar a avaliação');
 
-export const updateRatingApi = (data) => handleRequest(() => http.patch(`/carros/${data.id}`, data), 'Não foi possível atualizar a avaliação');
+export const updateCarApi = (data) => handleRequest(() => http.patch(`/carros/${data.id}`, data), 'Não foi possível atualizar a avaliação');
 
 export const getDataByIdApi = (id) => handleRequest(() => http.get(`/carros/${id}`), 'Avaliação não encontrada');

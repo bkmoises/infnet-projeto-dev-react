@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Form from "../components/form";
 import ErrorRating from "../components/error";
 import { useDispatch, useSelector } from "react-redux";
-import { getRating } from "../store/slices/rating/actions";
+import { getAllCar } from "../store/slices/car/actions";
 
 function Detalhes() {
     const { id } = useParams();
@@ -11,7 +11,7 @@ function Detalhes() {
     const rating = useSelector((state) => state.rating.rating);
 
     useEffect(() => {
-        dispatch(getRating(id));
+        dispatch(getAllCar(id));
     }, [dispatch, id]);
 
     if (!rating || Object.keys(rating).length === 0) {

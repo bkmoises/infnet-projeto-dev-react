@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRatings, getSortedRatings } from "../store/slices/rating/actions";
+import { getAllCars, getSortedCars } from "../store/slices/car/actions";
 
 const FilmesClassificados = () => {
     const dispatch = useDispatch();
     const filmesOrdenados = useSelector((state) => state.rating.sortedRatings);
 
     useEffect(() => {
-        dispatch(getAllRatings());
+        dispatch(getAllCars());
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(getSortedRatings());
+        dispatch(getSortedCars());
     }, [dispatch]);
 
     return (

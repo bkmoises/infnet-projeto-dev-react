@@ -3,7 +3,7 @@ import { FaTrashCan } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCar } from "../store/slices/rating/actions";
+import { deleteCar } from "../store/slices/car/actions";
 
 const Table = () => {
   const navigate = useNavigate();
