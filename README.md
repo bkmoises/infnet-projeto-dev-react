@@ -1,6 +1,6 @@
 # INFNET -  Projeto de Desenvolvimento de Aplicações Interativas com React
 
-## Criticas de Cinema
+## Lista de Carros
 - Autor: Moisés Reis de Andrade
 
 ---

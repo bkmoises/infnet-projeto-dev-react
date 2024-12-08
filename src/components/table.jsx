@@ -3,14 +3,14 @@ import { FaTrashCan } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteRating } from "../store/slices/rating/actions";
+import { deleteCar } from "../store/slices/rating/actions";
 
 const Table = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { ratings } = useSelector((state) => state.rating); 
 
-  const handleDeleteRating = async (id) => await dispatch(deleteRating(id));
+  const handleDeleteCar = async (id) => await dispatch(deleteCar(id));
 
   return (
     <div className="relative overflow-x-auto shadow-md mt-10">
@@ -61,7 +61,7 @@ const Table = () => {
               </td>
               <td className="px-6 py-4 text-center">
                 <button 
-                  onClick={() => handleDeleteRating(rating.id)} 
+                  onClick={() => handleDeleteCar(rating.id)} 
                   className="btn btn-excluir text-red-600 hover:underline"
                 >
                   <FaTrashCan />

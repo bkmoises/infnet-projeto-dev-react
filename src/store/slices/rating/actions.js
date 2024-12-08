@@ -1,5 +1,5 @@
 import { setRatings, setRating, setSortedRatings } from "./reducer";
-import { getDataApi, getDataByIdApi, updateRatingApi, createRatingApi, deleteRatingApi } from '../../../services/api';
+import { getDataApi, getDataByIdApi, updateRatingApi, createRatingApi, deleteCarApi } from '../../../services/api';
 import Swal from "sweetalert2";
 
 export const getAllRatings = () => async (dispatch) => {
@@ -51,7 +51,7 @@ export const saveForm = (editForm=false) => async (dispatch, getState) => {
     }
 };
 
-export const deleteRating = (id) => async (dispatch) => {
+export const deleteCar = (id) => async (dispatch) => {
     try {
         Swal.fire({
             title: 'Deseja excluir essa avaliação?',
@@ -64,7 +64,7 @@ export const deleteRating = (id) => async (dispatch) => {
             iconColor: '#d33'
         }).then(async (r) => {
             if (r.isConfirmed) {
-                await deleteRatingApi(id);
+                await deleteCarApi(id);
                 Swal.fire({
                     title: 'Avaliação excluída com sucesso',
                     icon: 'success',

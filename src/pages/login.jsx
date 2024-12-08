@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Contato = () => {
+const Login = () => {
     return (
         <div className="min-h-screen bg-gray-900 text-white p-8">
-            <h1 className="text-3xl font-bold mb-6">Contato</h1>
+            <h1 className="text-3xl font-bold mb-6">Login</h1>
             <div className="max-w-xl mx-auto bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 className="text-2xl mb-4">Entre em Contato Conosco</h2>
+                <h2 className="text-2xl mb-4">Entre em Login Conosco</h2>
                 <form>
                     <div className="mb-4">
                         <label className="block text-sm font-medium mb-2" htmlFor="nome">Nome</label>
@@ -46,13 +46,13 @@ const Contato = () => {
                 </form>
             </div>
             <div className="mt-8 text-center">
-                <h3 className="text-lg font-semibold">Dados de Contato</h3>
+                <h3 className="text-lg font-semibold">Dados de Login</h3>
                 <p className="mt-2">Telefone: (11) 1234-5678</p>
-                <p className="mt-1">E-mail: contato@criticasdecinema.com</p>
+                <p className="mt-1">E-mail: login@criticasdecinema.com</p>
                 <p className="mt-1">Endereço: Rua das Fitas, 123, São Paulo, SP</p>
             </div>
         </div>
     );
 };
 
-export default Contato;
+export default Login;

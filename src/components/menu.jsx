@@ -4,8 +4,8 @@ function Menu() {
 
   const menus = [
     { name: "Inicio", path: "/" },
-    { name: "Avaliar", path: "/avaliar" },
-    { name: "Filmes", path: "/filmes" },
+    { name: "Cadastrar", path: "/cadastrar" },
+    { name: "Carros", path: "/carros" },
     { name: "Séries", path: "/series" },
     { name: "Top Filmes", path: "/top-filmes" },
     { name: "Top Séries", path: "/top-series" }

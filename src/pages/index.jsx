@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "../components/table";
 import { useDispatch } from "react-redux";
-import { getAllRatings, deleteRating } from "../store/slices/rating/actions";
+import { getAllRatings, deleteCar } from "../store/slices/rating/actions";
 
 function App() {
   const dispatch = useDispatch();

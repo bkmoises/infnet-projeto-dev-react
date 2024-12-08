@@ -3,7 +3,7 @@ import Form from "../components/form";
 import { useEffect } from "react";
 import { resetRating } from "../store/slices/rating/reducer";
 
-function Avaliar() {
+function Cadastrar() {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -13,4 +13,4 @@ function Avaliar() {
     return <Form />;
 }
 
-export default Avaliar;
+export default Cadastrar;

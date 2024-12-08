@@ -11,7 +11,7 @@ async function handleRequest(requestFunc, errorMessage) {
 
 export const getDataApi = () => handleRequest(() => http.get('/carros'), 'Não foi possível obter os dados');
 
-export const deleteRatingApi = (id) => handleRequest(() => http.delete(`/carros/${id}`), 'Não foi possível excluir a avaliação');
+export const deleteCarApi = (id) => handleRequest(() => http.delete(`/carros/${id}`), 'Não foi possível excluir a avaliação');
 
 export const createRatingApi = (data) => handleRequest(() => http.post('/carros', data), 'Não foi possível criar a avaliação');
 
