@@ -1,4 +1,4 @@
-import { columns } from '../config/rating-columns';
+import { columns } from '../config/car-columns';
 import { FaTrashCan } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Table = () => {
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            {columns.rating.map((column, i) => (
+            {columns.car.map((column, i) => (
               <th scope="col" className="px-6 py-3" key={i}>{column}</th>
             ))}
             <th scope="col" className="px-6 py-3">Editar</th>
@@ -34,16 +34,22 @@ const Table = () => {
                 {rating.id}
               </td>
               <td className="px-6 py-4">
-                {rating.user}
+                {rating.fabricante}
               </td>
               <td className="px-6 py-4">
-                {rating.movie}
+                {rating.modelo}
               </td>
               <td className="px-6 py-4">
-                {rating.note}
+                {rating.ano}
               </td>
               <td className="px-6 py-4">
-                {rating.comment}
+                {rating.cor}
+              </td>
+              <td className="px-6 py-4">
+                {rating.cavalosDePotencia}
+              </td>
+              <td className="px-6 py-4">
+                {rating.pais}
               </td>
               <td className="px-6 py-4 text-center">
                 <button 
