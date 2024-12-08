@@ -1,4 +1,4 @@
-import { setCars, setCar, setSortedCars } from "./reducer";
+import { setCars, setCar } from "./reducer";
 import { getDataApi, getDataByIdApi, updateCarApi, createCarApi, deleteCarApi } from '../../../services/api';
 import Swal from "sweetalert2";
 
@@ -86,30 +86,4 @@ export const deleteCar = (id) => async (dispatch) => {
             confirmButtonText: 'OK'
         });
     }
-};
-
-export const getSortedCars = () => (dispatch, getState) => {
-    const { cars } = getState().car;
-
-    const filmesAgrupados = cars.reduce((acc, filme) => {
-        const { movie, note } = filme;
-
-        if (!acc[movie]) {
-            acc[movie] = { total: 0, count: 0 };
-        }
-
-        acc[movie].total += note;
-        acc[movie].count += 1;
-
-        return acc;
-    }, {});
-
-    const filmesComMedia = Object.keys(filmesAgrupados).map((movie) => ({
-        title: movie,
-        averageCar: filmesAgrupados[movie].total / filmesAgrupados[movie].count,
-    }));
-
-    const filmesOrdenados = filmesComMedia.sort((a, b) => b.averageCar - a.averageCar);
-
-    dispatch(setSortedCars(filmesOrdenados));
 };

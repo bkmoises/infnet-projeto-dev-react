@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cars: [],
   car: {},
-  sortedCars: [],
 };
 
 export const counterSlice = createSlice({
@@ -19,12 +18,9 @@ export const counterSlice = createSlice({
     resetCar: (state) => {
       state.car = {};
     },
-    setSortedCars: (state, action) => {
-      state.sortedCars = action.payload;
-    },
   },
 });
 
-export const { setCars, setCar, resetCar, setSortedCars } = counterSlice.actions;
+export const { setCars, setCar, resetCar } = counterSlice.actions;
 
 export default counterSlice.reducer;

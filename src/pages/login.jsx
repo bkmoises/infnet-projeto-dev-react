@@ -1,55 +1,78 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:8080/api/usuarios/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao fazer login. Verifique suas credenciais.");
+            }
+
+            const data = await response.json();
+            const { token } = data;
+
+            localStorage.setItem("authToken", token);
+
+            onLogin();
+
+            navigate("/");
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gray-900 text-white p-8">
-            <h1 className="text-3xl font-bold mb-6">Login</h1>
             <div className="max-w-xl mx-auto bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 className="text-2xl mb-4">Entre em Login Conosco</h2>
-                <form>
-                    <div className="mb-4">
-                        <label className="block text-sm font-medium mb-2" htmlFor="nome">Nome</label>
-                        <input 
-                            type="text" 
-                            id="nome" 
-                            name="nome" 
-                            required 
-                            className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                        />
-                    </div>
+                <h2 className="text-2xl mb-4">Fazer Login</h2>
+                {error && <p className="text-red-500 mb-4">{error}</p>}
+                <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label className="block text-sm font-medium mb-2" htmlFor="email">E-mail</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            required 
-                            className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium mb-2" htmlFor="mensagem">Mensagem</label>
-                        <textarea 
-                            id="mensagem" 
-                            name="mensagem" 
-                            rows="4" 
-                            required 
-                            className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                        ></textarea>
+                        <label className="block text-sm font-medium mb-2" htmlFor="password">Senha</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
                     </div>
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                        Enviar
+                        Login
                     </button>
                 </form>
-            </div>
-            <div className="mt-8 text-center">
-                <h3 className="text-lg font-semibold">Dados de Login</h3>
-                <p className="mt-2">Telefone: (11) 1234-5678</p>
-                <p className="mt-1">E-mail: login@criticasdecinema.com</p>
-                <p className="mt-1">Endereço: Rua das Fitas, 123, São Paulo, SP</p>
             </div>
         </div>
     );
