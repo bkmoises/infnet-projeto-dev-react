@@ -17,6 +17,8 @@ const Carros: React.FC = () => {
   const dispatch = useDispatch();
   const carros = useSelector((state: RootState) => state.car.cars);
   const [busca, setBusca] = useState<string>("");
+  const [paginaAtual, setPaginaAtual] = useState<number>(1);
+  const itensPorPagina = 20;
 
   useEffect(() => {
     dispatch(getAllCars());
@@ -31,6 +33,17 @@ const Carros: React.FC = () => {
         car.modelo.toLowerCase().includes(busca.toLowerCase())
       )
     : [];
+
+  const indexOfLastCar = paginaAtual * itensPorPagina;
+  const indexOfFirstCar = indexOfLastCar - itensPorPagina;
+
+  const currentCars = filteredCars.slice(indexOfFirstCar, indexOfLastCar);
+
+  const handlePageChange = (pageNumber: number) => {
+    setPaginaAtual(pageNumber);
+  };
+
+  const totalPages = Math.ceil(filteredCars.length / itensPorPagina);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
@@ -59,8 +72,8 @@ const Carros: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredCars.length > 0 ? (
-              filteredCars.map((car) => (
+            {currentCars.length > 0 ? (
+              currentCars.map((car) => (
                 <tr key={car.id} className="bg-gray-800 border-b hover:bg-gray-700">
                   <td className="px-6 py-4 font-medium text-gray-300">{car.fabricante}</td>
                   <td className="px-6 py-4 font-medium text-gray-300">{car.modelo}</td>
@@ -79,6 +92,28 @@ const Carros: React.FC = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={() => handlePageChange(paginaAtual - 1)}
+          disabled={paginaAtual === 1}
+          className="px-4 py-2 bg-gray-700 text-white rounded-lg mr-2"
+        >
+          Anterior
+        </button>
+
+        <span className="text-white">
+          Página {paginaAtual} de {totalPages}
+        </span>
+
+        <button
+          onClick={() => handlePageChange(paginaAtual + 1)}
+          disabled={paginaAtual === totalPages}
+          className="px-4 py-2 bg-gray-700 text-white rounded-lg ml-2"
+        >
+          Próxima
+        </button>
       </div>
     </div>
   );
