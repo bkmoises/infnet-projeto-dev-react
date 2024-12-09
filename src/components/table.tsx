@@ -4,13 +4,26 @@ import { FaEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCar } from "../store/slices/car/actions";
+import { RootState } from '../store';
 
-const Table = () => {
+interface Car {
+  id: number;
+  fabricante: string;
+  modelo: string;
+  ano: number;
+  cor: string;
+  cavalosDePotencia: number;
+  pais: string;
+}
+
+const Table: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cars } = useSelector((state) => state.car); 
+  const { cars } = useSelector((state: RootState) => state.car);
 
-  const handleDeleteCar = async (id) => await dispatch(deleteCar(id));
+  const handleDeleteCar = async (id: number) => {
+    await dispatch(deleteCar(id));
+  };
 
   return (
     <div className="relative overflow-x-auto shadow-md mt-10">
@@ -25,7 +38,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {cars.map((car, i) => (
+          {cars.map((car: Car, i: number) => (
             <tr 
               key={i} 
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
