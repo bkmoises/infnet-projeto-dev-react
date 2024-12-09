@@ -34,7 +34,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
             onLogin();
 
-            navigate("/");
+            navigate("/", { replace: true });
         } catch (err: unknown) {
             if (err instanceof Error) {
                 setError(err.message);

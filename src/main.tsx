@@ -1,12 +1,14 @@
+import React from 'react';
 import { createRoot } from "react-dom/client";
+import 'sweetalert2/src/sweetalert2.scss';
 import Routers from "./routers";
 import './index.css';
-import 'sweetalert2/src/sweetalert2.scss';
 
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
-  createRoot(rootElement).render(<Routers />);
+  const root = createRoot(rootElement);
+  root.render(<React.StrictMode><Routers /></React.StrictMode>);
 } else {
-  console.error("Root element not found");
+  console.error("Root element not found. Make sure there is an element with id 'root' in your HTML.");
 }

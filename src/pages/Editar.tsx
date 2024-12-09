@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Table from "../components/table";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store";
 import { getAllCars } from "../store/slices/car/actions";
-import { AppDispatch } from "../store";  // Tipando o dispatch
+import Table from "../components/Table";
 
 const App: React.FC = () => {
-    const dispatch = useDispatch<AppDispatch>();  // Tipando o dispatch para o tipo específico da aplicação
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         const link = document.querySelector("link[rel~='icon']");

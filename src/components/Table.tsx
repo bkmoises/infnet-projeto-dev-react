@@ -1,11 +1,11 @@
-import { columns } from '../config/car-columns';
-import { FaTrashCan } from "react-icons/fa6";
+import { useState } from 'react';
 import { FaEdit } from "react-icons/fa";
+import { FaTrashCan } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCar } from "../store/slices/car/actions";
 import { RootState } from '../store';
-import { useState } from 'react';
+import { deleteCar } from "../store/slices/car/actions";
+import { columns } from '../config/car-columns';
 
 interface Car {
   id: number;

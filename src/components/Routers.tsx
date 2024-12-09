@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Editar from "./pages/Editar";
-import Cadastrar from "./pages/Cadastrar";
-import Detalhes from "./pages/Detalhes";
-import Carros from "./pages/Carros";
-import Login from "./pages/Login";
-import Layout from "./components/Layout";
 import { Provider } from "react-redux";
-import { store } from "./store";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { store } from "./store";
+import Login from "./pages/Login";
+import Editar from "./pages/Editar";
+import Carros from "./pages/Carros";
+import Detalhes from "./pages/Detalhes";
+import Cadastrar from "./pages/Cadastrar";
+import Layout from "./components/Layout";
 import Logout from "./components/Logout";
 
 const Routers: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     setIsAuthenticated(!!token);
@@ -27,10 +27,6 @@ const Routers: React.FC = () => {
     setIsAuthenticated(false);
   };
 
-  if (isAuthenticated === null) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <Provider store={store}>
       <BrowserRouter basename="/">
@@ -38,7 +34,6 @@ const Routers: React.FC = () => {
           <Routes>
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
-
             {isAuthenticated ? (
               <>
                 <Route path="/" element={<Carros />} />
@@ -49,7 +44,11 @@ const Routers: React.FC = () => {
             ) : (
               <Route path="*" element={<Navigate to="/login" replace />} />
             )}
-
+            {/* Rotas públicas */}
+            <Route path="/" element={<Carros />} />
+            <Route path="/detalhes/:id" element={<Detalhes />} />
+            <Route path="/cadastrar" element={<Cadastrar />} />
+            <Route path="/editar" element={<Editar />} />
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </Layout>

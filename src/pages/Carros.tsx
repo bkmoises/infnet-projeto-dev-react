@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCars } from "../store/slices/car/actions";
 import { RootState } from "../store";
+import { getAllCars } from "../store/slices/car/actions";
 
 interface Car {
   id: string;

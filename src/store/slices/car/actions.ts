@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
-import { setCars, setCar } from './reducer';
-import { getDataApi, getDataByIdApi, updateCarApi, createCarApi, deleteCarApi } from '../../../services/api';
 import Swal from 'sweetalert2';
+import { getDataApi, getDataByIdApi, updateCarApi, createCarApi, deleteCarApi } from '../../../services/api';
 import { Car } from './reducer';
+import { setCars, setCar } from './reducer';
 
 interface Action<T> {
     type: string;
@@ -54,25 +54,25 @@ export const saveForm = (editForm = false) => async (dispatch: Dispatch<Action<C
         dispatch(getAllCars());
 
         Swal.fire({
-            title: 'Avaliação salva com sucesso',
+            title: 'Informações salvas com sucesso',
             icon: 'success',
             confirmButtonText: 'OK'
         });
         
     } catch (error) {
         Swal.fire({
-            title: 'Não foi possível registrar a avaliação',
+            title: 'Não foi possível registrar essas informações',
             icon: 'error',
             confirmButtonText: 'OK'
         });
-        console.error(`Erro ao salvar avaliação: ${error}`);
+        console.error(`Erro ao salvar informações: ${error}`);
     }
 };
 
 export const deleteCar = (id: string) => async (dispatch: Dispatch<Action<Car[]>>) => {
     try {
         Swal.fire({
-            title: 'Deseja excluir essa avaliação?',
+            title: 'Deseja excluir esse registro?',
             text: "Essa ação é irreversível",
             icon: 'info',
             confirmButtonText: 'Excluir',
@@ -84,7 +84,7 @@ export const deleteCar = (id: string) => async (dispatch: Dispatch<Action<Car[]>
             if (r.isConfirmed) {
                 await deleteCarApi(id);
                 Swal.fire({
-                    title: 'Avaliação excluída com sucesso',
+                    title: 'Registro excluído com sucesso',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
@@ -92,17 +92,17 @@ export const deleteCar = (id: string) => async (dispatch: Dispatch<Action<Car[]>
             dispatch(getAllCars());
         }).catch(() => {
             Swal.fire({
-                title: 'Erro ao excluir avaliação',
+                title: 'Erro ao excluir registro',
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
         });
     } catch (error) {
         Swal.fire({
-            title: 'Erro ao excluir avaliação',
+            title: 'Erro ao excluir registro',
             icon: 'error',
             confirmButtonText: 'OK'
         });
-        console.error(`Erro ao excluir avaliação: ${error}`);
+        console.error(`Erro ao excluir registro: ${error}`);
     }
 };
