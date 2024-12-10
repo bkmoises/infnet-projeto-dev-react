@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import * as Yup from 'yup';  // Importando o Yup
 import { editForm, saveForm } from '../store/slices/car/actions';
 
 interface CarState {
@@ -21,12 +22,60 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
   const navigate = useNavigate();
   const car = useSelector((state: { car: { car: CarState } }) => state.car.car);
 
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const validationSchema = Yup.object({
+    fabricante: Yup.string().required('Fabricante é obrigatório'),
+    modelo: Yup.string().required('Modelo é obrigatório'),
+    ano: Yup.string()
+      .matches(/^\d{4}$/, 'Ano deve ser um número de 4 dígitos')
+      .min(4, 'Ano inválido')
+      .max(4, 'Ano inválido')
+      .required('Ano é obrigatório'),
+    cor: Yup.string().required('Cor é obrigatória'),
+    cavalosDePotencia: Yup.number()
+      .typeError('Potência deve ser um número')
+      .positive('Potência deve ser um número positivo')
+      .required('Potência é obrigatória'),
+    pais: Yup.string().required('País é obrigatório'),
+  });
+
+  const validateField = (field: keyof CarState, value: string) => {
+    validationSchema
+      .validateAt(field, { ...car, [field]: value })
+      .then(() => {
+        setErrors((prevErrors) => {
+          const { [field]: _, ...rest } = prevErrors;
+          return rest;
+        });
+      })
+      .catch((err) => {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [field]: err.message,
+        }));
+      });
+  };
+
   const changeField = (field: keyof CarState, value: string) => {
     dispatch(editForm(field, value));
+    validateField(field, value);
   };
 
   const submitForm = () => {
-    dispatch(saveForm(isEdit)).then(() => navigate('/'));
+    validationSchema
+      .validate(car, { abortEarly: false })
+      .then(() => {
+        setErrors({});
+        dispatch(saveForm(isEdit)).then(() => navigate('/'));
+      })
+      .catch((err) => {
+        const newErrors: { [key: string]: string } = {};
+        err.inner.forEach((e: Yup.ValidationError) => {
+          newErrors[e.path!] = e.message;
+        });
+        setErrors(newErrors);
+      });
   };
 
   return (
@@ -40,8 +89,8 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
           id="fabricante"
           placeholder="Digite o fabricante"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
         />
+        {errors.fabricante && <p className="text-red-500 text-sm">{errors.fabricante}</p>}
       </div>
 
       <div className="field mb-5">
@@ -53,8 +102,8 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
           id="modelo"
           placeholder="Digite o modelo"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
         />
+        {errors.modelo && <p className="text-red-500 text-sm">{errors.modelo}</p>}
       </div>
 
       <div className="field mb-5">
@@ -66,8 +115,8 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
           id="ano"
           placeholder="Digite o ano"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
         />
+        {errors.ano && <p className="text-red-500 text-sm">{errors.ano}</p>}
       </div>
 
       <div className="field mb-5">
@@ -79,8 +128,8 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
           id="cor"
           placeholder="Digite a cor"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
         />
+        {errors.cor && <p className="text-red-500 text-sm">{errors.cor}</p>}
       </div>
 
       <div className="field mb-5">
@@ -92,8 +141,8 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
           id="cavalosDePotencia"
           placeholder="Digite a potência"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
         />
+        {errors.cavalosDePotencia && <p className="text-red-500 text-sm">{errors.cavalosDePotencia}</p>}
       </div>
 
       <div className="field mb-5">
@@ -105,8 +154,8 @@ const Form: React.FC<FormProps> = ({ isEdit }) => {
           id="pais"
           placeholder="Digite o país"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          required
         />
+        {errors.pais && <p className="text-red-500 text-sm">{errors.pais}</p>}
       </div>
 
       <div className="publicar">
