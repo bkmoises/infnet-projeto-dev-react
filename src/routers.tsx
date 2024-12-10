@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Editar from "./pages/Editar";
 import Cadastrar from "./pages/Cadastrar";
@@ -7,25 +8,11 @@ import Login from "./pages/Login";
 import Layout from "./components/Layout";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import React, { useState, useEffect } from "react";
 import Logout from "./components/Logout";
+import useAuth from "./hooks/useAuth";
 
 const Routers: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsAuthenticated(!!token);
-  }, []);
-
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    setIsAuthenticated(false);
-  };
+  const [isAuthenticated, handleLogin, handleLogout] = useAuth();
 
   if (isAuthenticated === null) {
     return <div>Loading...</div>;
